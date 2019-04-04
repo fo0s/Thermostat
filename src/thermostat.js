@@ -5,13 +5,25 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.temp = function(temp){
-  return temp
-}
+  return temp;
+};
 
 Thermostat.prototype.increase = function(temp){
-  this.temp += temp
-}
+  this.temp += temp;
+};
 
 Thermostat.prototype.decrease = function(temp){
-  this.temp -= temp
-}
+  this.temp -= temp;
+
+  if(this.temp < 10){
+    this.temp = 10;
+  };
+
+  // if((this.temp -= temp) < 10){
+  //     console.log("Temperature2: " + this.temp)
+  //   return this.temp = 10
+  //
+  // } else {
+  //   return this.temp -= temp;
+  // };
+};
