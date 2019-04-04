@@ -49,4 +49,19 @@ describe("Thermostat: ", function(){
       expect(thermostat.temp).toBe(20);
     });
   });
+  describe("#energyUsage- ", function(){
+    it('it returns "low usage" when temperature is under 18', function(){
+      thermostat.decrease(5);
+      expect(thermostat.energyUsage()).toBe('low-usage');
+    });
+    it('it returns "medium usage" when temperature is under 25', function(){
+      thermostat.increase(3);
+      expect(thermostat.energyUsage()).toBe('medium-usage');
+    });
+    it('it returns "high usage" when temperature is 25 or over', function(){
+      thermostat.powerSaveSet(false);
+      thermostat.increase(10);
+      expect(thermostat.energyUsage()).toBe('high-usage');
+    });
+  })
 });

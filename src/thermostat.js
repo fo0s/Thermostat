@@ -26,14 +26,24 @@ Thermostat.prototype.increase = function(temp){
   };
 };
 
-Thermostat.prototype.reset = function(){
-  this.temp = 20;
-}
-
 Thermostat.prototype.decrease = function(temp){
   this.temp -= temp;
 
   if(this.temp < 10){
     this.temp = 10;
+  };
+};
+
+Thermostat.prototype.reset = function(){
+  this.temp = 20;
+};
+
+Thermostat.prototype.energyUsage = function(){
+  if(this.temp < 18){
+    return "low-usage";
+  }else if(this.temp < 25){
+    return "medium-usage";
+  }else {
+    return "high-usage"
   };
 };
